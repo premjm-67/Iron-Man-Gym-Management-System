@@ -1,0 +1,90 @@
+/* Page background and hero */
+.auth-page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+  position:relative;
+  overflow:hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color:#050814;
+}
+
+/* Background slideshow layers */
+.auth-bg{ position:absolute; inset:0; z-index:0; pointer-events:none; }
+.auth-bg .bg{ position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transform:scale(1.08); transition:opacity 1.2s ease; }
+.auth-bg .bg1{ background-image: url('https://images.unsplash.com/photo-1554284126-aa88f22d8a4a?auto=format&fit=crop&w=1600&q=80'); animation: slideFade 18s infinite; animation-delay:0s; }
+.auth-bg .bg2{ background-image: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1600&q=80'); animation: slideFade 18s infinite; animation-delay:6s; }
+.auth-bg .bg3{ background-image: url('https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?auto=format&fit=crop&w=1600&q=80'); animation: slideFade 18s infinite; animation-delay:12s; }
+
+.auth-bg .bg-overlay{ position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.45)); mix-blend-mode:multiply; }
+
+@keyframes slideFade{
+  0% { opacity:0; }
+  8% { opacity:1; }
+  33% { opacity:1; }
+  41% { opacity:0; }
+  100% { opacity:0; }
+}
+
+/* Inner layout that becomes 2-column on wide screens */
+.auth-inner{ position:relative; z-index:2; width:100%; max-width:1100px; display:grid; grid-template-columns:1fr; gap:28px; align-items:center; }
+
+@media (min-width:980px){
+  .auth-inner{ grid-template-columns: 1fr 420px; gap:48px; }
+  .auth-hero{ text-align:left; padding-left:20px; }
+  .auth-container{ justify-self:end; }
+}
+
+.auth-hero{ text-align:center; color:#f7f9fb; margin-bottom:6px; }
+.auth-hero h1{ margin:0; font-size:40px; letter-spacing:0.4px; color:#f3f5f8; text-transform:none; font-weight:800; text-shadow: 0 4px 24px rgba(2,6,23,0.55); }
+.auth-hero .subtitle{ color:rgba(255,255,255,0.92); margin-top:6px; font-weight:600; opacity:0.95; }
+.auth-hero .lead{ margin-top:12px; color:rgba(255,255,255,0.82); max-width:520px; font-weight:500 }
+
+.brand-mark{ width:60px; height:60px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; margin-bottom:12px; font-weight:800; color:#ffffff; background: linear-gradient(90deg,#b8862e,#8f601e); font-size:18px; box-shadow:0 10px 30px rgba(2,6,23,0.55); animation: floaty 6s ease-in-out infinite; }
+@keyframes floaty{ 0%{ transform:translateY(0) } 50%{ transform:translateY(-6px) } 100%{ transform:translateY(0) } }
+
+/* Container for both login and register pages */
+.auth-container {
+  width:100%;
+  max-width:420px;
+  margin: 0 auto;
+  padding: 28px 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  border-radius: 12px;
+  box-shadow: 0 18px 48px rgba(2,6,23,0.6);
+  text-align: center;
+  color: #eaf1ff;
+  position: relative;
+  backdrop-filter: blur(10px) saturate(120%);
+  z-index:2;
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+/* Heading */
+.auth-container h2 { margin-bottom: 14px; color: #eef6ff; font-size:18px; font-weight:700 }
+
+/* small muted paragraph */
+.muted{ color:rgba(255,255,255,0.78); margin-top:12px; }
+
+/* Form container */
+.auth-form { display:flex; flex-direction:column; gap:12px; }
+
+/* Inputs */
+.auth-form input { padding: 12px 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.03); outline: none; font-size: 14px; background: rgba(10,12,20,0.56); color: #eef4f8; transition: all 0.18s ease; }
+.auth-form input::placeholder { color: rgba(230,230,230,0.55); }
+.auth-form input:focus { box-shadow: 0 10px 30px rgba(91,33,182,0.10); border-color: rgba(91,33,182,0.65); transform: translateY(-1px); }
+
+/* Buttons */
+.auth-form .primary { padding: 12px; border-radius: 10px; border: none; font-size: 16px; cursor: pointer; background: linear-gradient(90deg,#3b1f7a,#0f9a9a); color: #fff; font-weight: 800; width:100%; transition: transform 120ms ease, box-shadow 120ms ease; }
+.auth-form .primary:hover { transform: translateY(-2px); box-shadow: 0 22px 60px rgba(11,66,88,0.12); }
+
+/* Links below form */
+.auth-container p { margin-top: 12px; font-size: 14px; }
+.auth-container p a { color: #fff; text-decoration: underline; font-weight:700 }
+
+/* Small responsive tweaks */
+@media (max-width:520px){ .auth-hero h1{ font-size:28px; } .auth-container{ padding:18px; margin: 8px; } }
+
+
